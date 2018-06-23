@@ -1,2 +1,4 @@
 import * as React from 'react';
-export const RegisterConnector = () => (<div>register page</div>);
+import { RegisterView } from './ui/RegisterView';
+
+export const RegisterConnector = () => <RegisterView/>;
