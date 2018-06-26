@@ -1,0 +1,28 @@
+.container {
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,1fr);
+    height:400px;
+    width:400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.textInput {
+    grid-row: span 1;   
+}
+
+.buttonForm {
+    height:40px;
+    margin: 0 auto;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.forgot {
+    height:40px;
+    margin: 0 auto;
+}
