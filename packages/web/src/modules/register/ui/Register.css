@@ -10,11 +10,17 @@
 
 .textInput {
     grid-row: span 1;   
+    width:100%;
+}
+
+.ant-form-item label {
+    position: absolute !important;
 }
 
 .buttonForm {
     height:40px;
-    margin: 0 auto;
+    width: 200px;
+    margin: auto !important;
 }
 
 .intro {
@@ -24,5 +30,9 @@
 
 .forgot {
     height:40px;
-    margin: 0 auto;
+    width: 180px;
+    margin:auto !important;
+}
+
+.login {
 }
