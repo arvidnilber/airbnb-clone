@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { TextField, Button } from '@material-ui/core/';
+import { Button } from '@material-ui/core/';
 import "./Register.css";
-import { Form } from 'antd';
-import { withFormik, FormikErrors, FormikProps } from 'formik';
+import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
+import {InputField} from '../../shared/InputField';
 import { validUserSchema } from '@abb/common';
-const FormItem = Form.Item;
 
 interface FormValues {
 	email: string;
@@ -17,45 +16,32 @@ interface Props {
 
 class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 		render() {
-		const {values, handleChange, handleBlur, handleSubmit, touched, errors} = this.props;
-		console.log(errors)	
+		const { handleSubmit} = this.props;
 			return (
 				<div className="body">
 				<div className="body-text">
+					<img src={require('./img/favicon.png')} className="logo"/>
 					<h1>Welcome to Airbnb</h1>	
 					<h2>First, lets create an account!</h2>  
 				</div>
 				<form className="container" onSubmit={handleSubmit}>
-						<FormItem help={touched.email && errors.email ? errors.email : ""}
-							validateStatus={touched.email &&  errors.email ? "error" : undefined}
-						>
-							<TextField
-							name="email"
-							id="email"
-							label="Email"
-							className="textInput"
-							margin="normal"
-							value={values.email}
-							onChange={handleChange}
-							onBlur={handleBlur}
-							/>
-						</FormItem>
-						<FormItem help={touched.password && errors.password ? errors.password : ""}
-							validateStatus={touched.password &&  errors.password ? "error" : undefined}
-						>
-							<TextField
-							name="password"
-							id="password"
-							label="Password"
+						<Field 
+							name="email" 
+							label="Email" 
+							className="textInput" 
+							margin="normal" 
+							component={InputField} 
+						/>
+						<Field 
+							name="password" 
+							label="Password" 
+							className="textInput" 
+							margin="normal" 
 							type="password"
-							className="textInput"
-							value={values.password}
-							onChange={handleChange}
-							onBlur={handleBlur}
-							/>
-						</FormItem>
+							component={InputField} 
+						/>
 						<Button className="forgot" href="">Forgot password</Button>
-						<Button value="submit" variant="contained" type="primary" color="secondary" className="buttonForm">
+						<Button value="submit" variant="contained" type="primary" color="primary" className="buttonForm">
 							Register
 						</Button>
 						<div className="login">
@@ -66,7 +52,6 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			);
 	  }
 	}
-
 export const RegisterView = withFormik<Props, FormValues>({
 	validationSchema: validUserSchema,
 	validateOnChange:false,

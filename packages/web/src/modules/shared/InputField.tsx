@@ -1,0 +1,22 @@
+import * as React from 'react';
+import { FieldProps } from "formik";
+import { Form } from 'antd';
+import { TextField } from '@material-ui/core/';
+
+const FormItem = Form.Item;
+
+export const InputField: React.SFC<FieldProps<any> & {}> = ({
+    field, // { name, value, onChange, onBlur }
+    form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+    ...props
+}) => {
+    
+    const errorMsg = touched[field.name] && errors[field.name];
+
+    return (
+        <FormItem help={errorMsg} validateStatus={errorMsg ? "error" : undefined}>
+            <TextField {...field} {...props}/>
+       </FormItem>
+    );
+      
+};
