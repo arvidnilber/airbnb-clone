@@ -13,6 +13,8 @@
     width:100%;
 }
 
+
+
 .ant-form-item label {
     position: absolute !important;
 }
@@ -20,13 +22,22 @@
 .buttonForm {
     height:40px;
     width: 200px;
+    margin-bottom: 20px;
     margin: auto !important;
 }
 
-.intro {
+
+.body {
     text-align: center;
-    margin-top: 40px;
+    margin: auto;
 }
+
+.body-text {
+    color: white;
+    margin-top: 40px;
+    font-weight: 300 !important;
+}
+
 
 .forgot {
     height:40px;
