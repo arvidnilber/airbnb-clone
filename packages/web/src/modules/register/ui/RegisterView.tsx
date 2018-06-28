@@ -52,15 +52,13 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			);
 	  }
 	}
-export const RegisterView = withFormik<Props, FormValues>({
-	validationSchema: validUserSchema,
-	validateOnChange:false,
-	validateOnBlur: false,
-	mapPropsToValues: () => ({ email: "", password:""}),
-	handleSubmit: async (values, {props, setErrors}) => {
-		const errors = await props.submit(values);
-		if (errors) {
+	export const RegisterView = withFormik<Props, FormValues>({
+		validationSchema: validUserSchema,
+		mapPropsToValues: () => ({ email: "", password: "" }),
+		handleSubmit: async (values, { props, setErrors }) => {
+		  const errors = await props.submit(values);
+		  if (errors) {
 			setErrors(errors);
-		}	
-	}
+		  }
+		}
 })(C);

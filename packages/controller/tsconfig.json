@@ -6,7 +6,6 @@
     "target": "es5",
     "lib": ["es6", "dom","esnext.asynciterable"],
     "sourceMap": true,
-    "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
@@ -18,7 +17,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "types": ["jest", "node","react","react-dom", "react-router-dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
