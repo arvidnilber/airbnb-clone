@@ -1,15 +1,11 @@
-import {validUserSchema} from '@abb/common';
+import { validUserSchema } from "@abb/common";
 
 import { ResolverMap } from "../../../types/graphql-utils";
 import { User } from "../../../entity/User";
 import { formatYupError } from "../../../utils/formatYupError";
-import {
-  duplicateEmail,
-} from "./errorMessages";
+import { duplicateEmail } from "./errorMessages";
 // import { createConfirmEmailLink } from "../../utils/createConfirmEmailLink";
 // import { sendEmail } from "../../utils/sendEmail";
-
-
 
 export const resolvers: ResolverMap = {
   Mutation: {

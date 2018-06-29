@@ -7,10 +7,7 @@ import {
 } from "@abb/common";
 
 import { User } from "../../../entity/User";
-import {
-  duplicateEmail,
-
-} from "./errorMessages";
+import { duplicateEmail } from "./errorMessages";
 import { TestClient } from "../../../utils/TestClient";
 import { createTestConn } from "../../../testUtils/createTestConn";
 
