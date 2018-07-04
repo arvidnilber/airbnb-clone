@@ -11,8 +11,8 @@ export const sendEmail = async (recipient: string, url: string) => {
       subject: "Confirm Email",
       html: `<html>
         <body>
-        <p>Testing SparkPost - the world's most awesomest email service!</p>
-        <a href="${url}">confirm email</a>
+        <p>Welcome to Airbnb</p>
+        <a href="${url}">Confirm your email</a>
         </body>
         </html>`
     },
