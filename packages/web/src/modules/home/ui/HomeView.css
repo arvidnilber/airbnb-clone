@@ -2,3 +2,17 @@
     text-align: center;
     margin-top: 40px;
 }
+
+.buttonForm {
+    height:40px;
+    width: 200px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    margin: auto !important;
+}
+
+.buttonForm:hover {
+    color: white;
+    text-decoration: none;
+
+}
