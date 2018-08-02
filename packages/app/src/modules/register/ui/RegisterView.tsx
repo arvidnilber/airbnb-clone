@@ -1,12 +1,13 @@
-import * as React from 'react';
-import "./Register.css";
-import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
-import {InputField} from '../../shared/InputField';
-import { validUserSchema } from '@abb/common';
+import * as React from "react";
+import { withFormik, FormikErrors, FormikProps, Field } from "formik";
+import { validUserSchema } from "@abb/common";
+import { View } from "react-native";
+import { InputField } from "../../shared/InputField";
+import {Button, Card, Text} from 'react-native-elements';
 
 interface FormValues {
-	email: string;
-	password: string;
+  email: string;
+  password: string;
 }
 
 interface Props {
@@ -14,50 +15,46 @@ interface Props {
 }
 
 class C extends React.PureComponent<FormikProps<FormValues> & Props> {
-		render() {
-		const { handleSubmit} = this.props;
-			return (
-				<div className="body">
-				<div className="body-text">
-					<img src={require('./img/favicon.png')} className="logo"/>
-					<h1>Welcome to Airbnb</h1>	
-					<h2>First, lets create an account!</h2>  
-				</div>
-				<form className="container" onSubmit={handleSubmit}>
-						<Field 
-							name="email" 
-							label="Email" 
-							className="textInput" 
-							margin="normal" 
-							component={InputField} 
-						/>
-						<Field 
-							name="password" 
-							label="Password" 
-							className="textInput" 
-							margin="normal" 
-							type="password"
-							component={InputField} 
-						/>
-						<Button className="forgot" href="">Forgot password</Button>
-						<Button value="submit" variant="contained" type="primary" color="primary" className="buttonForm">
-							Register
-						</Button>
-						<div className="login">
-							Or <a href="">login now!</a>
-						</div>
-					</form>
-				</div>
-			);
-	  }
-	}
-	export const RegisterView = withFormik<Props, FormValues>({
-		validationSchema: validUserSchema,
-		mapPropsToValues: () => ({ email: "", password: "" }),
-		handleSubmit: async (values, { props, setErrors }) => {
-		  const errors = await props.submit(values);
-		  if (errors) {
-			setErrors(errors);
-		  }
-		}
+  render() {
+    const { handleSubmit } = this.props;
+    return (
+      <View style={{ 
+        flex:1,
+        display:"flex",
+        justifyContent:"center"
+      }}>
+        <Text style={{fontSize:30, marginBottom:20, textAlign:'center', fontWeight:'bold'}}>Welcome to Airbnb</Text>
+        <Card>
+          <Text style={{fontSize:25, marginBottom:10}}>Register</Text>
+          <Field 
+            name="email" 
+            placeholder="Email" 
+            component={InputField} 
+            containerStyle={{width:"100%", marginBottom:10}} 
+            autoCapitalize="none"
+          />
+          <Field
+            name="password"
+            secureTextEntry={true}
+            placeholder="Password"
+            component={InputField}
+            containerStyle={{width:"100%",marginBottom:10}}
+            autoCapitalize="none"
+          />
+          <Button title="Submit" onPress={handleSubmit as any} />
+        </Card>
+      </View>
+    );
+  }
+}
+
+export const RegisterView = withFormik<Props, FormValues>({
+  validationSchema: validUserSchema,
+  mapPropsToValues: () => ({ email: "", password: "" }),
+  handleSubmit: async (values, { props, setErrors }) => {
+    const errors = await props.submit(values);
+    if (errors) {
+      setErrors(errors);
+    }
+  }
 })(C);

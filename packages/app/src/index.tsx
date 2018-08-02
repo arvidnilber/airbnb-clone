@@ -6,7 +6,7 @@ import {Routes} from './routes';
 export default class App extends React.PureComponent {
   render() {
     return(<ApolloProvider client={client}>
-        <Routes/>
-        </ApolloProvider>);
+              <Routes/>
+           </ApolloProvider>);
   }
 }
