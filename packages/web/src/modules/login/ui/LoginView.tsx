@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core/';
 import "./Login.css";
 import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
 import {InputField} from '../../shared/InputField';
-//import { validUserSchema } from '@abb/common';
+import { loginSchema } from '@abb/common';
 import { Link } from 'react-router-dom';
 
 interface FormValues {
@@ -21,7 +21,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			return (
 				<div className="body">
 				<div className="body-text">
-                <img src={require('../shared/images/favicon.png')} className="logo"/>
+                <img src={require('../../shared/images/favicon.png')} className="logo"/>
 					<h1>Welcome to Airbnb</h1>	
 					<h2>Lets login!</h2>  
 				</div>
@@ -54,6 +54,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 	  }
 	}
 	export const LoginView = withFormik<Props, FormValues>({
+        validationSchema: loginSchema,
 		mapPropsToValues: () => ({ email: "", password: "" }),
 		handleSubmit: async (values, { props, setErrors }) => {
 		  const errors = await props.submit(values);

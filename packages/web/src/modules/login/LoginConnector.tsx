@@ -7,13 +7,13 @@ import { LoginView } from "./ui/LoginView";
 
 export class LoginConnector extends React.PureComponent {
 
-  dummySubmit = (values:any) => {
+  dummySubmit = async (values:any) => {
       console.log(values);
       return null;
   }
   render() {
     return (
-      <LoginView/>
+      <LoginView submit={this.dummySubmit}/>
     );
   }
 }

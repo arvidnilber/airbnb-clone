@@ -21,7 +21,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			return (
 				<div className="body">
 				<div className="body-text">
-					<img src={require('../shared/images/favicon.png')} className="logo"/>
+				<img src={require('../../shared/images/favicon.png')} className="logo"/>
 					<h1>Welcome to Airbnb</h1>	
 					<h2>First, lets create an account!</h2>  
 				</div>
