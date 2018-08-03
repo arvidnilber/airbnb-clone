@@ -19,3 +19,8 @@ export const validUserSchema = yup.object().shape({
     .required(),
   password: registerPasswordValidation
 });
+
+export const loginSchema = yup.object().shape({
+  email: yup.string().email('invalid login')
+  password
+})

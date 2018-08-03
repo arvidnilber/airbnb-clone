@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Button } from '@material-ui/core/';
-import "./Register.css";
+import "./Login.css";
 import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
 import {InputField} from '../../shared/InputField';
-import { validUserSchema } from '@abb/common';
+//import { validUserSchema } from '@abb/common';
 import { Link } from 'react-router-dom';
 
 interface FormValues {
@@ -21,9 +21,9 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			return (
 				<div className="body">
 				<div className="body-text">
-					<img src={require('../shared/images/favicon.png')} className="logo"/>
+                <img src={require('../shared/images/favicon.png')} className="logo"/>
 					<h1>Welcome to Airbnb</h1>	
-					<h2>First, lets create an account!</h2>  
+					<h2>Lets login!</h2>  
 				</div>
 				<form className="container" onSubmit={handleSubmit}>
 						<Field 
@@ -43,18 +43,17 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 						/>
 						<Button className="forgot" href="">Forgot password</Button>
 						<Button value="submit" variant="contained" type="primary" color="primary" className="buttonForm">
-							Register
+							Login
 						</Button>
 						<div className="login">
-							Or <Link to="/login"> login now!</Link>
+							Or <Link to="/register"> login now!</Link>
 						</div>
 					</form>
 				</div>
 			);
 	  }
 	}
-	export const RegisterView = withFormik<Props, FormValues>({
-		validationSchema: validUserSchema,
+	export const LoginView = withFormik<Props, FormValues>({
 		mapPropsToValues: () => ({ email: "", password: "" }),
 		handleSubmit: async (values, { props, setErrors }) => {
 		  const errors = await props.submit(values);

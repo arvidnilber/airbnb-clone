@@ -20,8 +20,10 @@
     "skipLibCheck": true,
     "declaration": true
   },
+  "include": [ 
+    "node_modules/@types/react" 
+  ],
   "exclude": [
-    "node_modules",
     "build",
     "scripts",
     "acceptance-tests",
