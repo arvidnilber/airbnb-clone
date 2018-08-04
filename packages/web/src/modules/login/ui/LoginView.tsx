@@ -46,7 +46,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 							Login
 						</Button>
 						<div className="login">
-							Or <Link to="/register"> login now!</Link>
+							Or <Link to="/register"> register now!</Link>
 						</div>
 					</form>
 				</div>
@@ -54,12 +54,15 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 	  }
 	}
 	export const LoginView = withFormik<Props, FormValues>({
-        validationSchema: loginSchema,
+		validationSchema: loginSchema,
+		validateOnChange: false,
+		validateOnBlur: false,
 		mapPropsToValues: () => ({ email: "", password: "" }),
 		handleSubmit: async (values, { props, setErrors }) => {
-		  const errors = await props.submit(values);
-		  if (errors) {
-			setErrors(errors);
-		  }
+			const errors = await props.submit(values);
+			if (errors) {
+				setErrors(errors);
+			}
 		}
-})(C);
+	})(C);
+	

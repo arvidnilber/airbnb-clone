@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "ts-app",
+    "name": "Airbnb",
     "description": "This project is really great.",
-    "slug": "ts-app",
+    "slug": "Airbnb",
     "privacy": "public",
     "sdkVersion": "27.0.0",
     "platforms": ["ios", "android"],

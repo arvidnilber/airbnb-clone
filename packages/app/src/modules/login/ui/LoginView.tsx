@@ -1,10 +1,10 @@
 import * as React from "react";
 import { withFormik, FormikErrors, FormikProps, Field } from "formik";
-import { validUserSchema } from "../../../../../common/dist";
 import { View } from "react-native";
 import { InputField } from "../../shared/InputField";
 import {Button, Card, Text} from 'react-native-elements';
-import { Link } from 'react-router-native';
+import { loginSchema } from '@abb/common';
+import { Link } from "react-router-native";
 
 interface FormValues {
   email: string;
@@ -26,7 +26,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
       }}>
         <Text style={{fontSize:30, marginBottom:20, textAlign:'center', fontWeight:'bold'}}>Welcome to Airbnb</Text>
         <Card>
-          <Text style={{fontSize:25, marginBottom:10}}>Register</Text>
+          <Text style={{fontSize:25, marginBottom:10}}>Login</Text>
           <Field 
             name="email" 
             placeholder="Email" 
@@ -44,9 +44,9 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
           />
           <Button title="Submit" onPress={handleSubmit as any} />
           <Link
-            to={`/login`}
+            to={`/register`}
             underlayColor='#fff'>
-              <Text style={{fontSize:16,marginTop:10,color:'blue'}}>Or login now</Text>
+              <Text style={{fontSize:16,marginTop:10,color:'blue'}}>Or register now</Text>
           </Link>
         </Card>
       </View>
@@ -54,8 +54,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
   }
 }
 
-export const RegisterView = withFormik<Props, FormValues>({
-  validationSchema: validUserSchema,
+export const LoginView = withFormik<Props, FormValues>({
+  validationSchema: loginSchema,
   mapPropsToValues: () => ({ email: "", password: "" }),
   handleSubmit: async (values, { props, setErrors }) => {
     const errors = await props.submit(values);
