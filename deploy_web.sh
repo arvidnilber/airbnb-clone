@@ -1,3 +1,2 @@
 #! /bin/bash
-yarn build:web
-netlifyctl deploy
+echo "./packages/web/build" | ./automate_deploy.sh

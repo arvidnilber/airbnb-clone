@@ -7,6 +7,9 @@ export class HomeView extends React.PureComponent {
         return(
             <div className="container">
                 <h1>Home</h1>
+                <Button href="/login" variant="contained" type="primary" color="primary" className="buttonForm">
+							Login now
+				</Button>
                 <Button href="/register" variant="contained" type="primary" color="primary" className="buttonForm">
 							Register now
 				</Button>
