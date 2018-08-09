@@ -6,7 +6,7 @@ export class NotFoundView extends React.PureComponent {
     render() {
         return(
         <div className="container">
-            <h1>Ooops, could not find this site</h1>
+            <h1>Ooops, could not find this asdasd</h1>
             <Button href="/" variant="contained" type="primary" color="primary" className="buttonForm">
 							Go back
 			</Button>

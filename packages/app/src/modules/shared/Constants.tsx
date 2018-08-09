@@ -1,0 +1,1 @@
+export const SID_KEY = 'abb_sid';
