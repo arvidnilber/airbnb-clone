@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Product Sans';
+    src: url('product_regular.ttf');
+	font-weight:500;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('product_bold.ttf');
+	font-weight:600;
+}
+
+body {
+    font-family: 'Product Sans' !important;
+}
+
+.MuiInput-input-23 {
+    font-family: 'Product Sans' !important;
+}
+
+.MuiFormLabel-root-10 {
+    font-family: 'Product Sans' !important;
+}
+
+.MuiButton-label-29 {
+    font-family: 'Product Sans' !important;
+}

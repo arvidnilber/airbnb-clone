@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './HomeView.css';
-import { Button } from '@material-ui/core/';
+import { Button } from '@material-ui/core';
 
 export class HomeView extends React.PureComponent {
     render() {

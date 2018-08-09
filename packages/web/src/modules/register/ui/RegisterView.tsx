@@ -1,10 +1,13 @@
 import * as React from 'react';
-import { Button } from '@material-ui/core/';
+import { Button } from '@material-ui/core';
 import "./Register.css";
-import { withFormik, FormikErrors, FormikProps, Field } from 'formik';
+import '../../shared/fonts/fonts.css';
+import { withFormik, FormikProps, Field } from 'formik';
 import {InputField} from '../../shared/InputField';
 import { validUserSchema } from '@abb/common';
 import { Link } from 'react-router-dom';
+import { NormalizedErrorMap } from '@abb/controller'
+
 
 interface FormValues {
 	email: string;
@@ -12,7 +15,7 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<FormikErrors<FormValues> | null>;
+  submit: (values: FormValues) => Promise<NormalizedErrorMap | null>;
 }
 
 class C extends React.PureComponent<FormikProps<FormValues> & Props> {
@@ -41,7 +44,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 							type="password"
 							component={InputField} 
 						/>
-						<Button className="forgot" href="">Forgot password</Button>
+						<Link to="/forgot"><Button className="forgot" href="">Forgot password</Button></Link>
 						<Button value="submit" variant="contained" type="primary" color="primary" className="buttonForm">
 							Register
 						</Button>

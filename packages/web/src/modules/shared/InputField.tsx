@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FieldProps } from "formik";
 import { Form } from 'antd';
-import { TextField } from '@material-ui/core/';
+import { TextField } from '@material-ui/core';
 
 const FormItem = Form.Item;
 

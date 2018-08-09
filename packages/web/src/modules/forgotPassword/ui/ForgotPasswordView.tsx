@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { Button } from '@material-ui/core';
-import "./Login.css";
+import "./ForgotPassword.css";
 import '../../shared/fonts/fonts.css';
 import { withFormik, FormikProps, Field } from 'formik';
 import {InputField} from '../../shared/InputField';
-import { loginSchema } from '@abb/common';
-import { Link } from 'react-router-dom';
 import { NormalizedErrorMap } from '@abb/controller'
+import { Link } from 'react-router-dom';
 
 interface FormValues {
 	email: string;
-	password: string;
 }
 
 interface Props {
@@ -23,9 +21,9 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			return (
 				<div className="body">
 				<div className="body-text">
-                <img src={require('../../shared/images/favicon.png')} className="logo"/>
-					<h1>Welcome to Airbnb</h1>	
-					<h2>Lets login!</h2>  
+                <Link to="/"><img src={require('../../shared/images/favicon.png')} className="logo"/></Link>
+					<h1>Reset your password</h1>	
+					<h2>Type your email here to reset your password</h2>  
 				</div>
 				<form className="container" onSubmit={handleSubmit}>
 						<Field 
@@ -35,31 +33,16 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 							margin="normal" 
 							component={InputField} 
 						/>
-						<Field 
-							name="password" 
-							label="Password" 
-							className="textInput" 
-							margin="normal" 
-							type="password"
-							component={InputField} 
-						/>
-						<Link to="/forgot"><Button className="forgot" href="">Forgot password</Button></Link>
 						<Button value="submit" variant="contained" type="primary" color="primary" className="buttonForm">
-							Login
+							Reset Password
 						</Button>
-						<div className="login">
-							Or <Link to="/register"> register now!</Link>
-						</div>
 					</form>
 				</div>
 			);
 	  }
 	}
-	export const LoginView = withFormik<Props, FormValues>({
-		validationSchema: loginSchema,
-		validateOnChange: false,
-		validateOnBlur: false,
-		mapPropsToValues: () => ({ email: "", password: "" }),
+	export const ForgotPasswordView = withFormik<Props, FormValues>({
+		mapPropsToValues: () => ({ email: ""}),
 		handleSubmit: async (values, { props, setErrors }) => {
 			const errors = await props.submit(values);
 			if (errors) {
