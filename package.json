@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "build:server":"lerna run build --scope={@abb/controller}",
+        "build:server":"lerna run build --scope={@abb/server,@abb/common}",
         "build:web":"lerna run build --scope={@abb/common,@abb/web}"
     },
     "workspaces": {

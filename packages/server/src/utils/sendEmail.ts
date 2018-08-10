@@ -1,6 +1,6 @@
 import * as nodemailer from 'nodemailer'
 
-export const sendEmail = async (recipient: string, url: string, linkText: string) => {
+export const sendEmail = async (recipient: string, url: string, linkText: string, welcomeMessage: string) => {
   nodemailer.createTestAccount((err1, account) => {
     if (err1) {
       console.log(err1)
@@ -15,14 +15,14 @@ export const sendEmail = async (recipient: string, url: string, linkText: string
       }
     });
   const message = {
-      from: 'Sender Name <sender@example.com>',
-      to: `Recipient <${recipient}>`,
-      subject: 'Nodemailer is unicode friendly ✔',
-      text: 'Hello to myself!',
+      from: 'Airbnb confirm@airbnb.com',
+      to: `<${recipient}>`,
+      subject: 'Confirm your email',
+      text: 'Confirm your email',
       html: `<html>
       <body>
-      <p>Testing SparkPost - the world's most awesomest email service!</p>
-      <a href="${url}">${linkText}</a>
+      <p>Welcome to Airbnb</p>
+      <p>${welcomeMessage}</p> <a href="${url}">${linkText}</a>
       </body>
       </html>`
   };

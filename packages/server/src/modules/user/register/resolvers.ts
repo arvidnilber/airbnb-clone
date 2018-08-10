@@ -47,7 +47,7 @@ export const resolvers: ResolverMap = {
         await sendEmail(
           email,
           await createConfirmEmailLink(url, user.id, redis),
-          "Confirm email"
+          "Confirm email", "Lets confirm your email"
         );
       }
 

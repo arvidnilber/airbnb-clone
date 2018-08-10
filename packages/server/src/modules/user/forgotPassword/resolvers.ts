@@ -1,6 +1,6 @@
-import * as yup from "yup";
+// import * as yup from "yup";
 import * as bcrypt from "bcryptjs";
-import { registerPasswordValidation } from "@abb/common";
+import { changePasswordSchema } from "@abb/common";
 
 import { ResolverMap } from "../../../types/graphql-utils";
 // import { forgotPasswordLockAccount } from "../../../utils/forgotPasswordLockAccount";
@@ -13,9 +13,7 @@ import { sendEmail } from '../../../utils/sendEmail';
 // 20 minutes
 // lock account
 
-const schema = yup.object().shape({
-  newPassword: registerPasswordValidation
-});
+
 
 export const resolvers: ResolverMap = {
   Mutation: {
@@ -41,7 +39,7 @@ export const resolvers: ResolverMap = {
         process.env.FRONTEND_HOST as string, 
         user.id, 
         redis);
-      await sendEmail(email, url, "Reset Password");
+      await sendEmail(email, url, "Reset Password", "Click here to reset your password");
 
       return true;
     },
@@ -63,7 +61,7 @@ export const resolvers: ResolverMap = {
       }
 
       try {
-        await schema.validate({ newPassword }, { abortEarly: false });
+        await changePasswordSchema.validate({ newPassword }, { abortEarly: false });
       } catch (err) {
         return formatYupError(err);
       }
