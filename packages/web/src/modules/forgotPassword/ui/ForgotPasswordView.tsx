@@ -12,7 +12,8 @@ interface FormValues {
 }
 
 interface Props {
-  submit: (values: FormValues) => Promise<NormalizedErrorMap | null>;
+	onFinish: () => void;
+	submit: (values: FormValues) => Promise<NormalizedErrorMap | null>;
 }
 
 class C extends React.PureComponent<FormikProps<FormValues> & Props> {
@@ -47,6 +48,8 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
 			const errors = await props.submit(values);
 			if (errors) {
 				setErrors(errors);
+			} else {
+				props.onFinish();
 			}
 		}
 	})(C);
