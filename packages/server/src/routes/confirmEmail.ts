@@ -8,7 +8,7 @@ export const confirmEmail = async (req: Request, res: Response) => {
   if (userId) {
     await User.update({ id: userId }, { confirmed: true });
     await redis.del(id);
-    res.send("ok");
+    res.send("You're now registered");
   } else {
     res.send("invalid");
   }

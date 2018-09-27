@@ -6,6 +6,8 @@ import { HomeConnector } from "../modules/home/HomeConnector";
 import { LoginConnector } from '../modules/login/LoginConnector';
 import { ForgotPasswordConnector } from '../modules/forgotPassword/ForgotPasswordConnector';
 import { ChangePasswordConnector } from '../modules/changePassword/ChangePasswordConnector';
+import { TextPage } from '../modules/TextPage/';
+import { EmailConfirmed } from '../modules/emailConfirmed/';
 
 export const Routes = () => (
     <BrowserRouter>
@@ -15,6 +17,8 @@ export const Routes = () => (
             <Route exact={true} path="/login" component={LoginConnector} />
             <Route exact={true} path="/forgot" component={ForgotPasswordConnector} />
             <Route exact={true} path="/change-password/:key" component={ChangePasswordConnector} />
+            <Route exact={true} path="/confirm/:key" component={EmailConfirmed} />
+            <Route path="/m" component={TextPage} />
             <Route exact={true} path="*" component={NotFoundConnector} />
         </Switch>
     </BrowserRouter>

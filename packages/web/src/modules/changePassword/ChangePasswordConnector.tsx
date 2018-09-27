@@ -9,9 +9,8 @@ export class ChangePasswordConnector extends React.PureComponent<
     key: string;
   }>
 > {
-  submit = async (values: any) => {
-    console.log(values);
-    return null;
+  onFinish = () => {
+    this.props.history.push("/login");
   };
 
   render() {
@@ -23,15 +22,11 @@ export class ChangePasswordConnector extends React.PureComponent<
     console.log(key);
     return (
       <ChangePasswordController>
-         {({ submit }) => (
+        {({ submit }) => (
           <ChangePasswordView
-
-            // tslint:disable-next-line:jsx-no-lambda
-            submit={async ({ newPassword }) =>
-              submit({
-                key,
-                newPassword
-              })}
+            onFinish={this.onFinish}
+            key={key}
+            submit={submit}
           />
         )}
       </ChangePasswordController>
